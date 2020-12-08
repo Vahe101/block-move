@@ -1,22 +1,22 @@
 const windowHeight = window.innerHeight;
 const windowWidth = window.innerWidth;
-const strideLength = 50;
+const stepLength = 50;
 
 var MarginLeft = 0;
 var MarginTop = 0;
 
-function move(direction, sign, style) {
+function move(margin, sign, style) {
     if (sign === '+')
-        direction += strideLength;
+        margin += stepLength;
     else if (sign === '-')
-        direction -= strideLength;
-    direction += "px";
-    document.getElementById('cube').style[style] = direction;
-    direction = parseInt(direction);
-    return direction;
+        margin -= stepLength;
+    margin += "px";
+    document.getElementById('cube').style[style] = margin;
+    margin = parseInt(margin);
+    return margin;
 }
 
-function logkey(event) {
+function logKey(event) {
     if (Math.abs(MarginLeft) >= windowWidth || Math.abs(MarginTop) >= windowHeight) {
         MarginLeft = 0;
         MarginTop = 0;
@@ -38,4 +38,4 @@ function logkey(event) {
             break;
     }
 }
-document.addEventListener('keydown', logkey)
+document.addEventListener('keydown', logKey)
