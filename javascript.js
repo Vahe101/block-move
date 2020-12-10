@@ -4,37 +4,31 @@ const stepLength = 50;
 
 var MarginLeft = 0;
 var MarginTop = 0;
-
-function move(margin, sign, style) {
-    if (sign === '+')
-        margin += stepLength;
-    else if (sign === '-')
-        margin -= stepLength;
-    margin += "px";
-    document.getElementById('cube').style[style] = margin;
-    margin = parseInt(margin);
-    return margin;
-}
+var cube = document.getElementById('cube');
 
 function logKey(event) {
     if (Math.abs(MarginLeft) >= windowWidth || Math.abs(MarginTop) >= windowHeight) {
         MarginLeft = 0;
         MarginTop = 0;
-        document.getElementById('cube').style.margin = 0;
+        cube.style.margin = 0;
         return;
     }
     switch (event.code) {
         case 'ArrowLeft':
-            MarginLeft = move(MarginLeft, '-', 'marginLeft');
+            MarginLeft -= stepLength;
+            cube.style.marginLeft = MarginLeft + "px";
             break;
         case 'ArrowUp':
-            MarginTop = move(MarginTop, '-', 'marginTop');
+            MarginTop -= stepLength;
+            cube.style.marginTop = MarginTop + "px";
             break;
         case 'ArrowRight':
-            MarginLeft = move(MarginLeft, '+', 'marginLeft');
+            MarginLeft += stepLength;
+            cube.style.marginLeft = MarginLeft + "px";
             break;
         case 'ArrowDown':
-            MarginTop = move(MarginTop, '+', 'marginTop');
+            MarginTop += stepLength;
+            cube.style.marginTop = MarginTop + "px";
             break;
     }
 }
