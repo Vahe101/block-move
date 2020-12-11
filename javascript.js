@@ -5,6 +5,10 @@ const stepLength = 50;
 
 var MarginLeft = 0;
 var MarginTop = 0;
+var objCube = {
+    marginLeft: MarginLeft + "px",
+    marginTop: MarginTop + "px"
+}
 
 function move(element, options) {
     element.style.marginLeft = options.marginLeft;
@@ -15,41 +19,32 @@ function logKey(event) {
     if (Math.abs(MarginLeft) >= windowWidth || Math.abs(MarginTop) >= windowHeight) {
         MarginLeft = 0;
         MarginTop = 0;
-        move(cube, {
-            marginLeft: MarginLeft + "px",
-            marginTop: MarginTop + "px"
-        })
+        objCube.marginLeft = 0;
+        objCube.marginTop = 0;
+        move(cube, objCube)
         return;
     }
 
     switch (event.code) {
         case 'ArrowLeft':
             MarginLeft -= stepLength;
-            move(cube, {
-                marginLeft: MarginLeft + "px",
-                marginTop: MarginTop + "px"
-            })
+            objCube.marginLeft = MarginLeft + "px";
+            move(cube,  objCube)
             break;
         case 'ArrowUp':
             MarginTop -= stepLength;
-            move(cube, {
-                marginLeft: MarginLeft + "px",
-                marginTop: MarginTop + "px"
-            })
+            objCube.marginTop = MarginTop + "px";
+            move(cube, objCube)
             break;
         case 'ArrowRight':
             MarginLeft += stepLength;
-            move(cube, {
-                marginLeft: MarginLeft + "px",
-                marginTop: MarginTop + "px"
-            })
+            objCube.marginLeft = MarginLeft + "px";
+            move(cube, objCube)
             break;
         case 'ArrowDown':
             MarginTop += stepLength;
-            move(cube, {
-                marginLeft: MarginLeft + "px",
-                marginTop: MarginTop + "px"
-            })
+            objCube.marginTop = MarginTop + "px";
+            move(cube, objCube)
             break;
     }
 }
