@@ -2,7 +2,7 @@ const cube = document.getElementById('cube');
 const windowHeight = window.innerHeight;
 const windowWidth = window.innerWidth;
 const stepLength = 50;
-debugger
+
 var MarginLeft = 0;
 var MarginTop = 0;
 var objCube = {
